@@ -1,18 +1,22 @@
 import React from 'react';
+import { Layout } from 'antd';
+import MenuSider from '@/page/sider/menuSider';
+import TitleHeader from '@/page/header/titleHeader';
+import BlankContent from '@/page/content/blankContent';
+import DavidFooter from '@/page/footer/davidFooter';
 
 class MainPage extends React.Component {
-    state = {
-        collapsed: false
-    }
-
-    toggle = () => {
-        this.setState({
-            collapsed: !this.state.collapsed
-        })
-    }
-
     render() {
-        return (<div>hello</div>)
+        return(
+            <Layout>
+                <MenuSider />
+                <Layout>
+                    <TitleHeader />
+                    <BlankContent />
+                    <DavidFooter />
+                </Layout>
+            </Layout>
+        );
     }
 }
 
