@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import menuReducer from '@/redux/reducers/menuReducer';
+import siderReducer from '@/redux/reducer/siderReducer';
+import authorityReducer from '@/redux/reducer/authorityReducer';
 
 /**
  * 合并所有的reducer
@@ -9,7 +10,8 @@ import menuReducer from '@/redux/reducers/menuReducer';
  */
 const reducer = combineReducers({
     // 对象形式存储 reducer
-    menuReducer
+    authorityReducer,
+    siderReducer
 });
   
 export default reducer;
