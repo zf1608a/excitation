@@ -16,7 +16,7 @@ const CARD_TITLE = '用户登录';
 class LoginContent extends React.Component {
     public render() {
         return(
-            <div className = 'page'>
+            <div>
                 <div className = 'loginContent'>
                     <Card type = 'inner' title = { CARD_TITLE }>
                         <LoginForm />

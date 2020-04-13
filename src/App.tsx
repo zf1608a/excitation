@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps, withRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './App.css';
 import MainPage from '@/page/mainPage';
@@ -11,15 +12,14 @@ import { IStore } from '@/redux/type/storeType';
  * @author David
  * @version 1.0
  */
-interface IProps {
+interface IProps extends RouteComponentProps {
     hasAuthority: boolean;
 }
 
 class BaseApp extends React.Component<IProps> {
     public render() {
-        const indexPage = this.props.hasAuthority ? <MainPage /> : <LoginPage />
         return(
-            indexPage
+            <Route path='/' component = { this.props.hasAuthority ? MainPage : LoginPage } />
         );
     }
 }
@@ -33,6 +33,6 @@ const mapStateToProps = ( state: IStore ) => {
 const actionCreator = {
 };
   
-const App = connect(mapStateToProps, actionCreator)(BaseApp);
+const App = connect(mapStateToProps, actionCreator)(withRouter(BaseApp));
 
 export default App;

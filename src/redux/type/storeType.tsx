@@ -11,6 +11,8 @@ export interface IStore {
 
 export interface IAuthorityStore {
     hasAuthority: boolean;
+    id: number;
+    name: string
 }
 
 export interface ISiderStore {

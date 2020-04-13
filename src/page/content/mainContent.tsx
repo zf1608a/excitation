@@ -1,13 +1,13 @@
 import React from 'react';
 
-class BlankContent extends React.Component {
+class MainContent extends React.Component {
     render() {
         return(
             <div className = 'page'>
-                blank
+                main
             </div>
         );
     }
 }
 
-export default BlankContent;
+export default MainContent;

@@ -10,7 +10,9 @@ import * as contents from '@/redux/constant/authorityConstant';
  */
 export const initState: IStore = {
     authorityReducer: {
-        hasAuthority: true
+        hasAuthority: true,
+        id: 0,
+        name: '匿名用户'
     },
     siderReducer: {
         hasCollapsed: false
@@ -22,7 +24,9 @@ export default function authorityReducer(state: IStore, action: AuthorityAction)
         case contents.AUTHORITY_IN:
             return {
                 ...state,
-                hasAuthority: true
+                hasAuthority: true,
+                id: action.data.authorityReducer.id,
+                name: action.data.authorityReducer.name
             }
         case contents.AUTHORITY_OUT:
             return {

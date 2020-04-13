@@ -20,6 +20,7 @@ const formLayout = {
     labelCol: { span: 6 },
     wrapperCol: { span: 16 },
 };
+
 const tailLayout = {
     wrapperCol: { offset: 16, span: 6 },
 };
@@ -27,6 +28,8 @@ const tailLayout = {
 interface IProps {
     hasCollapsed: boolean;
     hasAuthority: boolean;
+    id: number;
+    name: string;
     authorityInFun(data: IStore): IAuthorityIn;
 }
 
@@ -65,7 +68,9 @@ class LoginBaseForm extends React.Component<IProps, IState> {
             if(response.code === 0) {
                 this.props.authorityInFun({
                     authorityReducer: {
-                        hasAuthority: this.props.hasAuthority
+                        hasAuthority: this.props.hasAuthority,
+                        id: response.rowList[0].id,
+                        name: response.rowList[0].name
                     },
                     siderReducer: {
                         hasCollapsed: this.props.hasCollapsed
@@ -135,7 +140,9 @@ class LoginBaseForm extends React.Component<IProps, IState> {
 const mapStateToProps = (state: IStore) => {
     return {
         hasCollapsed: state.siderReducer.hasCollapsed,
-        hasAuthority: state.authorityReducer.hasAuthority
+        hasAuthority: state.authorityReducer.hasAuthority,
+        id: state.authorityReducer.id,
+        name:  state.authorityReducer.name
     };
 };
   

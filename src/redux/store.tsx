@@ -13,7 +13,9 @@ import { IStore } from '@/redux/type/storeType';
  */
 const defaultState: IStore | any = {
     authorityReducer: {
-        hasAuthority: false
+        hasAuthority: false,
+        id: 0,
+        name: '匿名用户'
     },
     siderReducer: {
         hasCollapsed: false

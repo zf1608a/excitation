@@ -1,3 +1,13 @@
 .writeBackground {
-    background: #FFFFFF;
+    background: #E0E0E0;
+}
+
+.leftSeparate {
+    text-align: left;
+    margin: 16px
+}
+
+.rightSeparate {
+    text-align: right;
+    margin: 16px
 }

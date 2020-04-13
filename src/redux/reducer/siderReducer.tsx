@@ -10,7 +10,9 @@ import * as contents from '@/redux/constant/siderConstant';
  */
 export const initState: IStore = {
     authorityReducer: {
-        hasAuthority: true
+        hasAuthority: true,
+        id: 0,
+        name: '匿名用户'
     },
     siderReducer: {
         hasCollapsed: false
