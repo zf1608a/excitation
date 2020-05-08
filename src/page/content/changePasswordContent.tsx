@@ -1,5 +1,9 @@
 import React from 'react';
-import { Form, Button, Input } from 'antd';
+import { connect } from 'react-redux';
+import { Form, Button, Input, message } from 'antd';
+
+import { IStore } from '@/redux/type/storeType';
+import { changePasswordFetch } from '@/communication/authority/changePasswordComm';
 
 /**
  * 修改用户密码
@@ -19,9 +23,30 @@ const tailLayout = {
     wrapperCol: { offset: 16, span: 6 },
 };
 
-class ChangePasswordContent extends React.Component {
+interface IProps {
+    id: number;
+}
+
+class ChangePasswordBaseContent extends React.Component<IProps> {
+    public constructor(props: IProps) {
+        super(props);
+    }
+
     public onFinish = ( values: any ) => {
-        console.log(values);
+        let content = {
+            password: values.password,
+            newPassword: values.newPassword,
+            id: this.props.id
+        };
+
+        changePasswordFetch('authority/changePassword', content)
+        .then(response => {
+            if(response.code === 0) {
+                message.success(response.message);
+            } else {
+                message.error(response.message);
+            }
+        })
     }
 
     render() {
@@ -88,5 +113,16 @@ class ChangePasswordContent extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state: IStore) => {
+    return {
+        id: state.authorityReducer.id,
+    };
+};
+  
+const actionCreator = {
+}
+  
+const ChangePasswordContent = connect(mapStateToProps, actionCreator)(ChangePasswordBaseContent);
 
 export default ChangePasswordContent;

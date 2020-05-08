@@ -1,5 +1,11 @@
 import HttpRequest from '@/communication/myFetch';
 
+/**
+ * 用户登录 
+ * 
+ * @author David
+ * @version 1.0
+ */
 const httpRequest = new HttpRequest();
 
 export interface IResponse {

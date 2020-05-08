@@ -4,6 +4,8 @@ import { Layout } from 'antd';
 import LoginContent from '@/page/content/loginContent';
 import DavidFooter from '@/page/footer/davidFooter';
 
+import '@/page/page.css';
+
 /**
  * 登录页面
  * 
@@ -13,7 +15,7 @@ import DavidFooter from '@/page/footer/davidFooter';
 class LoginPage extends React.Component {
     public render() {
         return(
-            <Layout>
+            <Layout className = 'page'>
                 <LoginContent />
                 <DavidFooter />
             </Layout>

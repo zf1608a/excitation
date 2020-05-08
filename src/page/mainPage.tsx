@@ -6,6 +6,9 @@ import PropertyHeader from '@/page/header/propertyHeader';
 import DavidFooter from '@/page/footer/davidFooter';
 import MainContent from '@/page/content/mainContent';
 import ChangePasswordContent from '@/page/content/changePasswordContent';
+import ParameterContent from './content/parameterContent';
+
+import '@/page/page.css';
 
 /**
  * 主页面
@@ -28,11 +31,12 @@ class MainBasePage extends React.Component<IProps> {
         // 构造面包屑
         const breadcrumbNameMap: any = {
             '/': '主页',
-            '/changePassword': '修改密码'
+            '/changePassword': '修改密码',
+            '/parameter': '系统参数管理'
         };
         const pathSnippets = this.props.location.pathname.split('/').filter(i => i);
         const extraBreadcrumbItems = pathSnippets.map((_, index) => {
-            const url = `/${pathSnippets.slice(0, index + 1).join('/')}`;
+            const url = `/${ pathSnippets.slice(0, index + 1).join('/') }`;
             return (
                 <Breadcrumb.Item key = { url }>
                     <Link to = { url }>{ breadcrumbNameMap[url] }</Link>
@@ -47,9 +51,9 @@ class MainBasePage extends React.Component<IProps> {
         )].concat(extraBreadcrumbItems);
 
         return(
-            <Layout>
+            <Layout className = 'page'>
                 <MenuSider />
-                <Layout>
+                <Layout className = 'page'>
                     <PropertyHeader />
                     <Content>
                         <Row>
@@ -62,6 +66,7 @@ class MainBasePage extends React.Component<IProps> {
                         <div>
                             <Switch>
                                 <Route path = '/changePassword' component={ ChangePasswordContent } />
+                                <Route path = '/parameter' component={ ParameterContent } />
                                 <Route path = '/' component={ MainContent } />
                             </Switch>
                         </div>

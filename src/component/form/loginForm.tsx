@@ -4,8 +4,8 @@ import { Form, Select, Input, Button, message } from 'antd';
 
 import { IStore } from '@/redux/type/storeType';
 import { authorityInFun, IAuthorityIn } from '@/redux/action/authorityAction';
-import { userOptionFetch, IOption } from '@/communication/login/userOptionComm';
-import { loginFetch } from '@/communication/login/loginComm';
+import { userOptionFetch, IOption } from '@/communication/authority/userOptionComm';
+import { loginFetch } from '@/communication/authority/loginComm';
 
 /**
  * 用户登录表单
